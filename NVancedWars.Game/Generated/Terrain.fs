@@ -4,6 +4,7 @@
 namespace NVancedWars.Game
 type TerrainType = 
     | Road
+    | Building
     | Bridge
     | Plains
     | Desert
@@ -25,6 +26,7 @@ module TerrainType =
     let getSightCost = 
         function
         | Road -> 1
+        | Building -> 3
         | Bridge -> 1
         | Plains -> 2
         | Desert -> 1
@@ -35,13 +37,31 @@ module TerrainType =
         | Reef -> 1
         | Beach -> 1
 
-    let allTerrainTypes = [ Road, Bridge, Plains, Desert, Forest, Mountain, River, Ocean, Reef, Beach ]
+    let getDefenseModifier = 
+        function
+        | Road -> Percentage.from(0, 10)
+        | Building -> Percentage.from(5, 10)
+        | Bridge -> Percentage.from(0, 10)
+        | Plains -> Percentage.from(1, 10)
+        | Desert -> Percentage.from(1, 10)
+        | Forest -> Percentage.from(3, 10)
+        | Mountain -> Percentage.from(4, 10)
+        | River -> Percentage.from(2, 10)
+        | Ocean -> Percentage.from(1, 10)
+        | Reef -> Percentage.from(3, 10)
+        | Beach -> Percentage.from(0, 10)
+
+    let allTerrainTypes = [ Road, Building, Bridge, Plains, Desert, Forest, Mountain, River, Ocean, Reef, Beach ]
     let getMoveCost terrain movement = 
         match terrain, movement with
         | Road, Foot -> Some 1
         | Road, Tire -> Some 1
         | Road, Tread -> Some 1
         | Road, Air -> Some 1
+        | Building, Foot -> Some 1
+        | Building, Tire -> Some 1
+        | Building, Tread -> Some 1
+        | Building, Air -> Some 1
         | Bridge, Foot -> Some 1
         | Bridge, Tire -> Some 1
         | Bridge, Tread -> Some 1

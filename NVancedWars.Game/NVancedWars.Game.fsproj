@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <Compile Include="Percentage.fs" />
+    <Compile Include="Modifiers.fs" />
     <Compile Include="Guid.fs" />
     <Compile Include="Ids.fs" />
     <Compile Include="Generated\ArmorDamage.fs" />
@@ -23,7 +24,9 @@
     <Compile Include="UnitState.fs" />
     <Compile Include="GameState.fs" />
     <Compile Include="ActivePlayerInfo.fs" />
+    <Compile Include="Logic\Fight.fs" />
     <Compile Include="Logic\PlayerAction.fs" />
+    <Compile Include="Logic\ObservedAction.fs" />
   </ItemGroup>
 
 </Project>

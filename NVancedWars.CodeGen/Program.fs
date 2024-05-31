@@ -8,8 +8,10 @@ let destination = "../../../../NVancedWars.Game/Generated"
 let moveCosts = FSharp.Data.CsvFile.Load("./MoveCosts.csv")
 
 
-let terrainColumn = moveCosts.GetColumnIndex("_TT");
-let sightColumn = moveCosts.GetColumnIndex("_SIGHT");
+let terrainColumn = moveCosts.GetColumnIndex("_TT")
+let sightColumn = moveCosts.GetColumnIndex("_SIGHT")
+let defenseColumn = moveCosts.GetColumnIndex("_DEFENSE")
+
 let movementTypes = 
     moveCosts.Headers.Value
     |> Seq.filter (fun v -> v.StartsWith("_") |> not)
@@ -59,8 +61,16 @@ using (new System.IO.StreamWriter(new System.IO.FileStream(terrainFile, System.I
     wrl "        function"
     
     for row in moveCosts.Rows do
-        wrl (sprintf "        | %s%s -> %i" (row.GetColumn terrainColumn) (if row.GetColumn terrainColumn = "Building" then " _" else "") (row.GetColumn sightColumn |> int))
+        wrl (sprintf "        | %s -> %i" (row.GetColumn terrainColumn)(row.GetColumn sightColumn |> int))
 
+    
+    wrl ""
+    wrl "    let getDefenseModifier = "
+    wrl "        function"
+    for row in moveCosts.Rows do
+        wrl (sprintf "        | %s -> Percentage.from(%i, 10)" (row.GetColumn terrainColumn) (row.GetColumn defenseColumn |> int))
+
+    
     wrl ""
     wrl <| sprintf "    let allTerrainTypes = [ %s ]" (String.concat ", " (terrainTypes))
 

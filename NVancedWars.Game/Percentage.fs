@@ -6,12 +6,17 @@ open System.Runtime.CompilerServices
 type Percentage(_v: int) =
     member _.v = _v
     
+    static member oneHundred = Percentage 100
+    static member zero = Percentage 0
+    static member fifty = Percentage 50
+
     static member from(current: int, max: int) =
         Percentage(current * 100 / max)
 
     static member (+) (a: Percentage, b: Percentage) = Percentage(a.v + b.v)
     static member (-) (a: Percentage, b: Percentage) = Percentage(a.v - b.v)
     static member (*) (a: Percentage, b: Percentage) = Percentage((a.v * b.v) / 10000)
+    static member (*) (a: Percentage, b: int) = a.v * b / 100
     
     override this.Equals(obj: obj) =
         match obj with

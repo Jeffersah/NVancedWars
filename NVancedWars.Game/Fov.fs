@@ -1,6 +1,7 @@
 ﻿namespace NVancedWars.Game
 
 type FovState =
+    | BlackMap
     | Hidden
     | Visible
     | Revealed

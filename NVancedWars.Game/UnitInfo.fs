@@ -7,7 +7,7 @@ type WeaponInfo =
         damageType: DamageType
         damage: int
         ammo: int option
-        minRange: int
+        minRange: int option
         maxRange: int
         targetLayers: Layer list
         weaponAttributes: WeaponAttribute list

@@ -4,7 +4,6 @@ type PlayerState = {
     id: PlayerId    
     info: PlayerInfo
     fov: Fov
-    blackmap: Point Set
 }
 
 
