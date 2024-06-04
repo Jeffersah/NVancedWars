@@ -5,7 +5,13 @@ VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "NVancedWars.Game", "NVancedWars.Game\NVancedWars.Game.fsproj", "{4C5F34C9-1490-49C7-BE79-17D2AEA5FD35}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "NVancedWars.CodeGen", "NVancedWars.CodeGen\NVancedWars.CodeGen.fsproj", "{C3A51FE9-AC6D-4D19-9B08-5B3880D1137C}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "NVancedWars.CodeGen", "NVancedWars.CodeGen\NVancedWars.CodeGen.fsproj", "{C3A51FE9-AC6D-4D19-9B08-5B3880D1137C}"
+EndProject
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "NvancedWars.Server", "NvancedWars.Server\NvancedWars.Server.fsproj", "{9205E616-8B69-455C-9F28-CC40BFF731DC}"
+EndProject
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "NVancedWars.Shared", "NVancedWars.Shared\NVancedWars.Shared.fsproj", "{DC469679-4FC7-40C3-9EC8-70452628C960}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "App", "NVancedWars.UI\src\App.fsproj", "{CFD03D26-809D-4653-906D-3B34550C458A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +27,18 @@ Global
 		{C3A51FE9-AC6D-4D19-9B08-5B3880D1137C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3A51FE9-AC6D-4D19-9B08-5B3880D1137C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3A51FE9-AC6D-4D19-9B08-5B3880D1137C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9205E616-8B69-455C-9F28-CC40BFF731DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9205E616-8B69-455C-9F28-CC40BFF731DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9205E616-8B69-455C-9F28-CC40BFF731DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9205E616-8B69-455C-9F28-CC40BFF731DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC469679-4FC7-40C3-9EC8-70452628C960}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC469679-4FC7-40C3-9EC8-70452628C960}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC469679-4FC7-40C3-9EC8-70452628C960}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC469679-4FC7-40C3-9EC8-70452628C960}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFD03D26-809D-4653-906D-3B34550C458A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFD03D26-809D-4653-906D-3B34550C458A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFD03D26-809D-4653-906D-3B34550C458A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFD03D26-809D-4653-906D-3B34550C458A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

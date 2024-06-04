@@ -66,15 +66,21 @@ type Point(_x: int, _y: int) =
             false
 
     override this.GetHashCode() =
-        System.HashCode.Combine(this.x, this.y);
+        #if FABLE_COMPILER
+            this.x ^^^ ~~~(this.y <<< 1)
+        #else
+            System.HashCode.Combine(this.x, this.y);
+        #endif
 
     interface System.IComparable<Point> with
         member this.CompareTo(other: Point) =
-            match this.x.CompareTo(other.x) with
+            let icmp a b =
+                sign (a - b)
+
+            match icmp this.x other.x with
             | v when v < 0 -> v
             | v when v > 0 -> v
-            | _ ->
-                this.y.CompareTo(other.y)
+            | _ -> icmp this.y other.y
 
     interface System.IComparable with
         member this.CompareTo(obj: obj) =

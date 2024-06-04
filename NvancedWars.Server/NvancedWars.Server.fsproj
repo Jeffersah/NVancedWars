@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="public\another.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="public\index.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Compile Include="Extensions.fs" />
+    <Compile Include="RngHelper.fs" />
+    <Compile Include="UserAccounts\UserAccountPersist.fs" />
+    <Compile Include="UserAccounts\UserAccountController.fs" />
+    <Compile Include="UserElmish.fs" />
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Elmish.Bridge.Suave" Version="7.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Suave" Version="2.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NVancedWars.Game\NVancedWars.Game.fsproj" />
+    <ProjectReference Include="..\NVancedWars.Shared\NVancedWars.Shared.fsproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="public\content\" />
+  </ItemGroup>
+
+</Project>

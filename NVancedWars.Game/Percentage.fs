@@ -30,7 +30,7 @@ type Percentage(_v: int) =
 
     interface System.IComparable<Percentage> with
         member this.CompareTo(other: Percentage) =
-            _v.CompareTo(other.v)
+            _v - other.v
 
     interface System.IComparable with
         member this.CompareTo(obj: obj) =

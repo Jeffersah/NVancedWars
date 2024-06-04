@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+    </PropertyGroup>
+    <ItemGroup>
+        <None Include="index.html">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <Compile Include="Extensions.fs" />
+        <Compile Include="CommonComponents.fs" />
+        <Compile Include="LoginComponents.fs" />
+        <Compile Include="Components.fs" />
+        <Compile Include="Elmish.fs" />
+        <Compile Include="Main.fs" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Elmish.Bridge.Client" Version="7.0.2" />
+        <PackageReference Include="Fable.Elmish" Version="4.0.0" />
+        <PackageReference Include="Fable.Elmish.React" Version="4.0.0" />
+        <PackageReference Include="Feliz" Version="2.6.0" />
+        <PackageReference Include="Feliz.Router" Version="4.0.0" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\..\NVancedWars.Game\NVancedWars.Game.fsproj" />
+      <ProjectReference Include="..\..\NVancedWars.Shared\NVancedWars.Shared.fsproj" />
+    </ItemGroup>
+</Project>
