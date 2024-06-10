@@ -3,6 +3,7 @@
         <TargetFramework>net8.0</TargetFramework>
     </PropertyGroup>
     <ItemGroup>
+        <Compile Include="ComponentFrame.fs" />
         <None Include="index.html">
           <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
@@ -23,5 +24,8 @@
     <ItemGroup>
       <ProjectReference Include="..\..\NVancedWars.Game\NVancedWars.Game.fsproj" />
       <ProjectReference Include="..\..\NVancedWars.Shared\NVancedWars.Shared.fsproj" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Pages\" />
     </ItemGroup>
 </Project>
