@@ -45,7 +45,8 @@ export function GameStateModule_createUnit(position, unitInfo, owner, gs) {
     const unit = new UnitState(owner, new UnitId(0, [GuidModule_create()]), unitInfo, unitInfo.hp, ofSeq(choose((kvp) => {
         const matchValue = kvp[1].ammo;
         if (matchValue != null) {
-            return [kvp[0], matchValue];
+            const ammo = matchValue | 0;
+            return [kvp[0], ammo];
         }
         else {
             return void 0;

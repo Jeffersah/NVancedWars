@@ -3,6 +3,7 @@
         <TargetFramework>net8.0</TargetFramework>
     </PropertyGroup>
     <ItemGroup>
+        <Compile Include="MockServer.fs" />
         <Compile Include="ComponentFrame.fs" />
         <None Include="index.html">
           <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

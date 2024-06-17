@@ -55,15 +55,39 @@ export function UnitAttributeModule_engineer(attribs) {
 }
 
 export function UnitAttributeModule_reveal(attribs) {
-    return tryPick((_arg) => ((_arg.tag === 3) ? _arg.fields[0] : (void 0)), attribs);
+    return tryPick((_arg) => {
+        if (_arg.tag === 3) {
+            const x = _arg.fields[0] | 0;
+            return x;
+        }
+        else {
+            return void 0;
+        }
+    }, attribs);
 }
 
 export function UnitAttributeModule_resist(attribs) {
-    return tryPick((_arg) => ((_arg.tag === 4) ? _arg.fields[0] : (void 0)), attribs);
+    return tryPick((_arg) => {
+        if (_arg.tag === 4) {
+            const x = _arg.fields[0] | 0;
+            return x;
+        }
+        else {
+            return void 0;
+        }
+    }, attribs);
 }
 
 export function UnitAttributeModule_supply(attribs) {
-    return tryPick((_arg) => ((_arg.tag === 5) ? _arg.fields[0] : (void 0)), attribs);
+    return tryPick((_arg) => {
+        if (_arg.tag === 5) {
+            const x = _arg.fields[0] | 0;
+            return x;
+        }
+        else {
+            return void 0;
+        }
+    }, attribs);
 }
 
 export function WeaponAttributeModule_indirect(attribs) {
@@ -102,6 +126,14 @@ export function WeaponAttributeModule_cannotCounter(attribs) {
 }
 
 export function WeaponAttributeModule_Flare(attribs) {
-    return tryPick((_arg) => ((_arg.tag === 5) ? _arg.fields[0] : (void 0)), attribs);
+    return tryPick((_arg) => {
+        if (_arg.tag === 5) {
+            const x = _arg.fields[0] | 0;
+            return x;
+        }
+        else {
+            return void 0;
+        }
+    }, attribs);
 }
 

@@ -8,14 +8,18 @@ open Elmish.Bridge
 open NVancedWars.App.Elmish
 open Elmish.React
 
-let socket = 
-    #if DEBUG
-        sprintf "https://localhost:8080%s" (NVancedWars.Shared.Variables.endpoint)
-    #else
-        NVancedWars.Shared.Variables.endpoint
-    #endif
+let USE_REAL_SERVER = false
 
-Program.mkProgram init update view
-|> Program.withBridge NVancedWars.Shared.Variables.endpoint
+let socket = 
+    NVancedWars.Shared.Variables.endpoint
+
+let program =
+    let program = Program.mkProgram init (update USE_REAL_SERVER) view
+    if USE_REAL_SERVER then
+        program |> Program.withBridge NVancedWars.Shared.Variables.endpoint
+    else 
+        program
+
+program
 |> Program.withReactBatched "feliz-app"
 |> Program.run

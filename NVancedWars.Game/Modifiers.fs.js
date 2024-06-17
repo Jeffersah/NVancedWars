@@ -28,16 +28,20 @@ export function ModifierModule_order(modifiers) {
 export function ModifierModule_apply(value, _arg) {
     switch (_arg.tag) {
         case 1: {
-            return (_arg.fields[0] + value) | 0;
+            const l = _arg.fields[0] | 0;
+            return (l + value) | 0;
         }
         case 2: {
-            return min(comparePrimitives, _arg.fields[0], value) | 0;
+            const v = _arg.fields[0] | 0;
+            return min(comparePrimitives, v, value) | 0;
         }
         case 3: {
-            return max(comparePrimitives, _arg.fields[0], value) | 0;
+            const v_1 = _arg.fields[0] | 0;
+            return max(comparePrimitives, v_1, value) | 0;
         }
         default: {
-            return Percentage_op_Multiply_631F3DCD(_arg.fields[0], value) | 0;
+            const m = _arg.fields[0];
+            return Percentage_op_Multiply_631F3DCD(m, value) | 0;
         }
     }
 }

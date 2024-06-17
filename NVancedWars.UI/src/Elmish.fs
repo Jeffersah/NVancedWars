@@ -29,19 +29,28 @@ type ClientMainState =
 let init () = 
     NotAuthenticated { isReqInFlight = None; loginFailed = false }, Cmd.none
 
-let update (msg) (model) =
+    
+let inline ask useRealServer (fn: ReplyChannel<'reply> -> MsgToServer) : Async<'reply> =
+    if useRealServer then
+        (NVancedWars.MockServer.actualRequestBuilder<'reply> fn)
+    else
+        (NVancedWars.MockServer.mockRequestBuilder<'reply> fn)
+
+let update (useRealServer) (msg) (model) =
+    let inline ask f = ask useRealServer f
+
     match msg, model with
 
     | TriggerLogin (user, pass), NotAuthenticated { isReqInFlight = None } -> 
         let req () = async {
-            let! result = Bridge.AskServer(fun (replyChannel:IReplyChannel<PlayerToken option>) -> Account (Login ({ user = user; password = pass }, replyChannel)))
+            let! result = ask(fun (replyChannel: ReplyChannel<PlayerToken option>) -> Account (Login ({ user = user; password = pass }, replyChannel)))
             return LoginOrRegisterResult result
         }
         NotAuthenticated { isReqInFlight = Some user; loginFailed = false }, Cmd.OfAsync.either req () id (fun _ -> LoginOrRegisterResult None)
 
     | TriggerRegister (user, pass), NotAuthenticated { isReqInFlight = None } -> 
         let req () = async {
-            let! result = Bridge.AskServer(fun (replyChannel:IReplyChannel<Result<PlayerToken, string>>) -> Account (Register ({ user = user; password = pass }, replyChannel)))
+            let! result = ask(fun (replyChannel:ReplyChannel<Result<PlayerToken, string>>) -> Account (Register ({ user = user; password = pass }, replyChannel)))
             return LoginOrRegisterResult (match result with | Error _ -> None | Ok value -> Some value)
         }
         NotAuthenticated { isReqInFlight = Some user; loginFailed = false }, Cmd.OfAsync.either req () id (fun _ -> LoginOrRegisterResult None)

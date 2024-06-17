@@ -43,6 +43,7 @@ export class Point extends Record {
         }
         switch (matchResult) {
             case 0: {
+                const other_1 = obj;
                 return true;
             }
             case 1: {
@@ -55,15 +56,27 @@ export class Point extends Record {
         return (Point__get_x(this$) ^ (~(Point__get_y(this$) << 1))) | 0;
     }
     "System.IComparable`1.CompareTo2B595"(other) {
+        let v, v_1;
         const this$ = this;
         const icmp = (a, b) => sign(a - b);
         const matchValue = icmp(Point__get_x(this$), Point__get_x(other)) | 0;
-        return ((matchValue < 0) ? matchValue : ((matchValue > 0) ? matchValue : icmp(Point__get_y(this$), Point__get_y(other)))) | 0;
+        if ((v = (matchValue | 0), v < 0)) {
+            const v_2 = matchValue | 0;
+            return v_2 | 0;
+        }
+        else if ((v_1 = (matchValue | 0), v_1 > 0)) {
+            const v_3 = matchValue | 0;
+            return v_3 | 0;
+        }
+        else {
+            return icmp(Point__get_y(this$), Point__get_y(other)) | 0;
+        }
     }
     CompareTo(obj) {
         const this$ = this;
         if (obj instanceof Point) {
-            return this$["System.IComparable`1.CompareTo2B595"](obj) | 0;
+            const other = obj;
+            return this$["System.IComparable`1.CompareTo2B595"](other) | 0;
         }
         else {
             const clo = toFail(printf("Can\'t compare point to %A"));

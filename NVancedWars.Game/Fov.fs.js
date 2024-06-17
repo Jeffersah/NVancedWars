@@ -35,14 +35,17 @@ export function Fov$reflection() {
 }
 
 export function FovModule_getCell(pt, _arg) {
-    return defaultArg(tryFind(pt, _arg.fields[0]), new FovState(1, []));
+    const fov = _arg.fields[0];
+    return defaultArg(tryFind(pt, fov), new FovState(1, []));
 }
 
 export function FovModule_markVisible(pt, _arg) {
-    return new Fov(0, [add(pt, new FovState(2, []), _arg.fields[0])]);
+    const fov = _arg.fields[0];
+    return new Fov(0, [add(pt, new FovState(2, []), fov)]);
 }
 
 export function FovModule_markRevealed(pt, _arg) {
-    return new Fov(0, [add(pt, new FovState(3, []), _arg.fields[0])]);
+    const fov = _arg.fields[0];
+    return new Fov(0, [add(pt, new FovState(3, []), fov)]);
 }
 

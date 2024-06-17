@@ -8,10 +8,11 @@ export class Percentage extends Record {
         this._v = (_v | 0);
     }
     Equals(obj) {
+        let other;
         const this$ = this;
         let matchResult;
         if (obj instanceof Percentage) {
-            if (Percentage__get_v(obj) === Percentage__get_v(this$)) {
+            if ((other = obj, Percentage__get_v(other) === Percentage__get_v(this$))) {
                 matchResult = 0;
             }
             else {
@@ -23,6 +24,7 @@ export class Percentage extends Record {
         }
         switch (matchResult) {
             case 0: {
+                const other_1 = obj;
                 return true;
             }
             case 1: {
@@ -41,7 +43,8 @@ export class Percentage extends Record {
     CompareTo(obj) {
         const this$ = this;
         if (obj instanceof Percentage) {
-            return this$["System.IComparable`1.CompareTo2B595"](obj) | 0;
+            const other = obj;
+            return this$["System.IComparable`1.CompareTo2B595"](other) | 0;
         }
         else {
             const clo = toFail(printf("Can\'t compare percentage to %A"));
