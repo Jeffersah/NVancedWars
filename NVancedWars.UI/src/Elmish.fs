@@ -67,4 +67,4 @@ let view model dispatch =
     | NotAuthenticated { isReqInFlight = isReqInFlight; loginFailed = failed } ->
         LoginComponents.LoginOrRegister (Option.isSome isReqInFlight,  failed, (TriggerLogin >> dispatch), (TriggerRegister >> dispatch))
     | Authenticated state ->
-        Html.div (sprintf "Logged in as %s" state.username)
+        NVancedWars.App.Pages.Frame.FrameComponents.Frame(state.username)

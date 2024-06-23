@@ -1,10 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
     </PropertyGroup>
     <ItemGroup>
         <Compile Include="MockServer.fs" />
-        <Compile Include="ComponentFrame.fs" />
         <None Include="index.html">
           <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
@@ -12,6 +11,7 @@
         <Compile Include="CommonComponents.fs" />
         <Compile Include="LoginComponents.fs" />
         <Compile Include="Components.fs" />
+        <Compile Include="Pages\ComponentFrame.fs" />
         <Compile Include="Elmish.fs" />
         <Compile Include="Main.fs" />
     </ItemGroup>
@@ -25,8 +25,5 @@
     <ItemGroup>
       <ProjectReference Include="..\..\NVancedWars.Game\NVancedWars.Game.fsproj" />
       <ProjectReference Include="..\..\NVancedWars.Shared\NVancedWars.Shared.fsproj" />
-    </ItemGroup>
-    <ItemGroup>
-      <Folder Include="Pages\" />
     </ItemGroup>
 </Project>
